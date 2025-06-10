@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/new_blog.css' %}" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+    <img id="profile-avatar" src="{% static 'images/avatar.jpg' %}" alt="Avatar">
+    <div id="profile-name">@max_summer</div>
+
+    <div class="sidebar-menu">
+        <a href="#">Главная</a>
+        <a href="#">Новый пост</a>
+        <a href="#">Файлы</a>
+        <a href="#">Архив</a>
+    </div>
+</div>
+</div>
+</body>
+</html>
