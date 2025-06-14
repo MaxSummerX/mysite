@@ -9,6 +9,11 @@
 <body>
 <div id="container">
     <div id="content">
+        {% if messages %}
+            {% for message in messages %}
+            {{ message.tags }} {{ message }}
+        {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </div>
@@ -18,15 +23,29 @@
     <div id="profile-name">@max_summer</div>
 
     <div class="sidebar-menu">
-        <a href="/blog/">Главная</a>
-        <a href="#">Новый пост</a>
-        <a href="#">Тест</a>
-        <a href="#">Тест</a>
+        <a href="/">Главная</a>
+        <a href="/accounts/signup/">Регистрация</a>
+        <a href="/search/">Поиск</a>
+        <a href="/admin/">Админка</a>
     </div>
         <p>
         This is my blog.
         I've written {% total_posts %} posts so far.
         </p>
+        <hr>
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'users-profile' %}">My profile</a></p>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <a href="#" onclick="parentNode.submit();">Log Out</a>
+            </form>
+        {% else %}
+            <p>You are not logged in</p>
+            <p><a href="{% url 'login' %}">Log In</a></p>
+            <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+        {% endif %}
+        <hr>
         <h3>Latest posts</h3>
         {% show_latest_posts 3 %}
       <h3>Most commented posts</h3>

@@ -8,7 +8,7 @@ from django.conf import settings
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
 from django.db.models import Count
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
+from django.contrib.postgres.search import TrigramSimilarity
 
 
 class PostListView(ListView):
@@ -25,7 +25,7 @@ def post_list(request, tag_slug=None):
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        post_list =post_list.filter(tags=tag)
+        post_list = post_list.filter(tags=tag)
 
     paginator = Paginator(post_list, 5)
     page_number = request.GET.get('page', 1)
