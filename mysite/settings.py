@@ -51,7 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'accounts.apps.AccountsConfig',
     'social_django',
-    'django_bootstrap5'
+    'django_bootstrap5',
+    'rest_framework',
+    'blog_api.apps.BlogApiConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -161,6 +164,15 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
+
+#Django REST Framework
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
 
 #Авторизация через социальные сети посредством OAuth
 AUTHENTICATION_BACKENDS = (
