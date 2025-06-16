@@ -23,7 +23,11 @@
     <div id="sidebar">
         <h2>My blog</h2>
     <img id="profile-avatar" src="{% static 'images/avatar.jpg' %}" alt="Avatar">
-    <div id="profile-name">@max_summer</div>
+    {% if user.is_authenticated %}
+        <div id="profile-name">@{{ user.username }}</div>
+    {% else %}
+        <p>@You are not logged</p>
+    {% endif %}
 
     <div class="sidebar-menu">
         <a href="/">Главная</a>
