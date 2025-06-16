@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog_api.apps.BlogApiConfig',
     'django_filters',
+    'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -150,8 +152,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Конфигурация сервера электронной почты
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nightlightsdie@gmail.com' # указать email
-EMAIL_HOST_PASSWORD = '' # указать код из паролей приложения
+EMAIL_HOST_USER = os.getenv('HOST_USER') # указать email
+EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD') # указать код из паролей приложения
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -168,11 +170,27 @@ MEDIA_URL = '/media/'
 #Django REST Framework
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny",
+        "rest_framework.permissions.IsAuthenticated",
     ],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5,
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+# drf-spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
+}
 
 #Авторизация через социальные сети посредством OAuth
 AUTHENTICATION_BACKENDS = (
@@ -188,3 +206,4 @@ SOCIAL_AUTH_GITHUB_SECRET = os.getenv('GITHUB_SECRET')
 # social auth configs for google
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_SECRET')
+

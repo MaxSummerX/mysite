@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6664a759-ebb2-48e0-8024-dd7e90e948e9" name="Changes" comment="requirements">
-      <change afterPath="$PROJECT_DIR$/blog_api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/legacy/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6664a759-ebb2-48e0-8024-dd7e90e948e9" name="Changes" comment="new requirements&#10;add blog_api app&#10;add DRF">
+      <change afterPath="$PROJECT_DIR$/blog_api/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/base.html" afterDir="false" />
@@ -47,12 +42,12 @@
     &quot;assignee&quot;: &quot;MaxSummerX&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:MaxSummerX/mysite.git",
-    "accountId": "703e4e89-2413-4eae-b72c-2dad3de0c726"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:MaxSummerX/mysite.git&quot;,
+    &quot;accountId&quot;: &quot;703e4e89-2413-4eae-b72c-2dad3de0c726&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -93,11 +88,20 @@
       <option name="project" value="LOCAL" />
       <updated>1749978014883</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new requirements&#10;add blog_api app&#10;add DRF">
+      <option name="closed" value="true" />
+      <created>1750025194696</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750025194696</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="requirements" />
+    <MESSAGE value="new requirements&#10;add blog_api app&#10;add DRF" />
+    <option name="LAST_COMMIT_MESSAGE" value="new requirements&#10;add blog_api app&#10;add DRF" />
   </component>
 </project>
